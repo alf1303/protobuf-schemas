@@ -1,13 +1,13 @@
 syntax = "proto3";
-package waves;
+package wavesmy;
 
 option java_package = "com.wavesplatform.protobuf.transaction";
 option csharp_namespace = "Waves";
-option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/waves";
+option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/wavesmy";
 
-import "waves/transaction.proto";
-import "waves/amount.proto";
-import "waves/recipient.proto";
+import "wavesmy/transaction.proto";
+import "wavesmy/amount.proto";
+import "wavesmy/recipient.proto";
 
 message InvokeScriptResult {
     message Payment {

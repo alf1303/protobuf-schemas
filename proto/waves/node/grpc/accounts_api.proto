@@ -1,12 +1,12 @@
 syntax = "proto3";
-package waves.node.grpc;
+package wavesmy.node.grpc;
 option java_package = "com.wavesplatform.api.grpc";
 option csharp_namespace = "Waves.Node.Grpc";
-option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/waves/node/grpc";
+option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/wavesmy/node/grpc";
 
-import "waves/amount.proto";
-import "waves/transaction.proto";
-import "waves/recipient.proto";
+import "wavesmy/amount.proto";
+import "wavesmy/transaction.proto";
+import "wavesmy/recipient.proto";
 import "google/protobuf/wrappers.proto";
 
 service AccountsApi {
@@ -42,7 +42,7 @@ message BalanceResponse {
     }
 
     oneof balance {
-        WavesBalances waves = 1;
+        WavesBalances wavesmy = 1;
         Amount asset = 2;
     }
 }

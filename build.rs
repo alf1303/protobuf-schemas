@@ -1,13 +1,13 @@
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     tonic_build::configure().compile(
         &[
-            "proto/waves/node/grpc/accounts_api.proto",
-            "proto/waves/node/grpc/assets_api.proto",
-            "proto/waves/node/grpc/blockchain_api.proto",
-            "proto/waves/node/grpc/blocks_api.proto",
-            "proto/waves/node/grpc/transactions_api.proto",
-            "proto/waves/events/events.proto",
-            "proto/waves/events/grpc/blockchain_updates.proto",
+            "proto/wavesmy/node/grpc/accounts_api.proto",
+            "proto/wavesmy/node/grpc/assets_api.proto",
+            "proto/wavesmy/node/grpc/blockchain_api.proto",
+            "proto/wavesmy/node/grpc/blocks_api.proto",
+            "proto/wavesmy/node/grpc/transactions_api.proto",
+            "proto/wavesmy/events/events.proto",
+            "proto/wavesmy/events/grpc/blockchain_updates.proto",
         ],
         &["proto"],
     )?;

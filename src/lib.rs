@@ -1,17 +1,17 @@
-pub mod waves {
-    tonic::include_proto!("waves");
+pub mod wavesmy {
+    tonic::include_proto!("wavesmy");
 
     pub mod events {
-        tonic::include_proto!("waves.events");
+        tonic::include_proto!("wavesmy.events");
 
         pub mod grpc {
-            tonic::include_proto!("waves.events.grpc");
+            tonic::include_proto!("wavesmy.events.grpc");
         }
     }
 
     pub mod node {
         pub mod grpc {
-            tonic::include_proto!("waves.node.grpc");
+            tonic::include_proto!("wavesmy.node.grpc");
         }
     }
 }

@@ -1,5 +1,5 @@
 [package]
-name = "waves-protobuf-schemas"
+name = "wavesmy-protobuf-schemas"
 version = "1.4.3"
 edition = "2018"
 

@@ -1,10 +1,10 @@
 syntax = "proto3";
-package waves;
+package wavesmy;
 option java_package = "com.wavesplatform.protobuf.order";
 option csharp_namespace = "Waves";
-option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/waves";
+option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/wavesmy";
 
-import "waves/amount.proto";
+import "wavesmy/amount.proto";
 
 message AssetPair {
     bytes amount_asset_id = 1;

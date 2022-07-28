@@ -1,12 +1,12 @@
 syntax = "proto3";
-package waves.events;
+package wavesmy.events;
 option java_package = "com.wavesplatform.events.protobuf";
-option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/waves/events";
+option go_package = "github.com/wavesplatform/gowaves/pkg/grpc/generated/wavesmy/events";
 
-import "waves/block.proto";
-import "waves/amount.proto";
-import "waves/transaction.proto";
-import "waves/invoke_script_result.proto";
+import "wavesmy/block.proto";
+import "wavesmy/amount.proto";
+import "wavesmy/transaction.proto";
+import "wavesmy/invoke_script_result.proto";
 
 message BlockchainUpdated {
     bytes id = 1;

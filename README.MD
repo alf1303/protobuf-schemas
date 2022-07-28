@@ -20,7 +20,7 @@ libraryDependencies += "com.wavesplatform" % "protobuf-schemas" % "{version}" % 
 ```scala
 inConfig(Compile)(Seq(
    PB.protoSources in Compile := Seq(PB.externalIncludePath.value),
-   includeFilter in PB.generate := new SimpleFileFilter((f: File) => f.getName.endsWith(".proto") && f.getParent.endsWith("waves")),
+   includeFilter in PB.generate := new SimpleFileFilter((f: File) => f.getName.endsWith(".proto") && f.getParent.endsWith("wavesmy")),
    PB.targets += scalapb.gen(flatPackage = true) -> sourceManaged.value
  ))
 ```
@@ -30,26 +30,26 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 ```
 See [ScalaPB docs](https://scalapb.github.io/docs/third-party-protos) for more info.
 ## JavaScript
-Npm package: `@waves/protobuf-serialization`.
+Npm package: `@wavesmy/protobuf-serialization`.
 
 It contains generated JavaScript classes, TypeScript definitions as well as raw proto files. The default build uses CommonJS and includes all of the proto files. We used `pbjs` to build JavaScript and `pbts` to build TypeScript definitions.
 
-You could also make your own custom build from raw `.proto` files, for example, if you want to use only a subset of proto schemas or gRPC services. They can be found in `@waves/protobuf-serialization/proto` directory.
+You could also make your own custom build from raw `.proto` files, for example, if you want to use only a subset of proto schemas or gRPC services. They can be found in `@wavesmy/protobuf-serialization/proto` directory.
 
 `long.js` is used for 64-bit integers: `int64`, `uint64`, etc.
 
 Example:
-1. `npm install --save @waves/protobuf-serialization`
+1. `npm install --save @wavesmy/protobuf-serialization`
 2. Default build usage
 ```javascript
-import { waves } from '@waves/protobuf-serialization';
+import { wavesmy } from '@wavesmy/protobuf-serialization';
 
-const block = new waves.Block();
+const block = new wavesmy.Block();
 block.header = // ... set necessary fields
 
-const buffer = waves.Block.encode(block);
+const buffer = wavesmy.Block.encode(block);
 
-const blockDecoded = waves.Block.decode(buffer);
+const blockDecoded = wavesmy.Block.decode(buffer);
 ```
 
 ## C#
@@ -57,9 +57,9 @@ const blockDecoded = waves.Block.decode(buffer);
 2. Add 
 ```
   <ItemGroup>
-    <Protobuf Include="proto\waves\*.proto" OutputDir="waves\%(RelativePath)" GrpcServices="None" />
-    <Protobuf Include="proto\waves\events\*.proto" OutputDir="waves\events\%(RelativePath)" GrpcServices="None" />
-    <Protobuf Include="proto\waves\node\grpc\*.proto" OutputDir="waves\node\grpc\%(RelativePath)" GrpcServices="Both" />
+    <Protobuf Include="proto\wavesmy\*.proto" OutputDir="wavesmy\%(RelativePath)" GrpcServices="None" />
+    <Protobuf Include="proto\wavesmy\events\*.proto" OutputDir="wavesmy\events\%(RelativePath)" GrpcServices="None" />
+    <Protobuf Include="proto\wavesmy\node\grpc\*.proto" OutputDir="wavesmy\node\grpc\%(RelativePath)" GrpcServices="Both" />
   </ItemGroup>
 ```
 to your `.csproj` file. After this just build your project.
@@ -73,7 +73,7 @@ Also there is a NuGet package WavesPlatform.ProtobufSchema with this project.
 Add dependency to your `Cargo.toml`
 ```toml
 [dependencies]
-waves-protobuf-schemas = { git = "https://github.com/wavesplatform/protobuf-schemas" }
+wavesmy-protobuf-schemas = { git = "https://github.com/wavesplatform/protobuf-schemas" }
 ```
 
 # How to generate sources locally
@@ -95,8 +95,8 @@ python -m grpc_tools.protoc --proto_path=./protobuf-schemas/proto --python_out=.
 Tweak `--python_out` and `--grpc_python_out` parameters to generate files elsewhere. Target path should likely be absolute. Now you can use generated classes:
 ```python
 import grpc
-from waves.events.grpc.blockchain_updates_pb2_grpc import BlockchainUpdatesApiStub
-from waves.events.grpc.blockchain_updates_pb2 import SubscribeRequest
+from wavesmy.events.grpc.blockchain_updates_pb2_grpc import BlockchainUpdatesApiStub
+from wavesmy.events.grpc.blockchain_updates_pb2 import SubscribeRequest
 from base58 import b58encode, b58decode
 
 def asset_id(asset_id_bytes):
